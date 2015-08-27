@@ -23,6 +23,8 @@
 #
 #==============================================================================
 
+# This build script is not used when we use ansible to build docker.
+
 echo "Starting build at: $(date +%Y%m%d)"
 
 #

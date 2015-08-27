@@ -11,10 +11,8 @@ Build the container and run it.
 
 ## Example
 
-```
 ./build.sh
 docker run -d vmware-opencloud/collectd.
-```
 
 # License and Copyright
  

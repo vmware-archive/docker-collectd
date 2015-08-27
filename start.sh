@@ -15,6 +15,12 @@
 #  limitations under the License.
 #
 
+# When using ansible to build and run docker - we do not use this start.sh as this script is used to populate the config template, push it to 
+# the config directory on remote target and then start collectd. 
+
+# We now have a config template that is used by ansible or jenkins to create the config file. The run.sh is used to
+# start collectd
+
 if [ -z "${READTHREADS}" ]; then
 	READTHREADS=10
 fi

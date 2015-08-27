@@ -13,9 +13,17 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 #
+
+#This Dockerfile is not templatized. Meaning we don't use ansible to set some values before using this file.
+
 FROM gliderlabs/alpine:3.1
-MAINTAINER Tom Hite <thite@vmware.com>
-ADD start.sh /start.sh
-ADD collectd.d /etc/collectd/collectd.d
-RUN apk-install collectd && chmod +x /start.sh
-CMD /start.sh
+
+RUN apk-install collectd
+ADD ./collectd.conf  /etc/collectd/
+ADD run.sh /run.sh
+RUN chmod +x /run.sh
+
+EXPOSE 25826
+
+CMD /run.sh
+
